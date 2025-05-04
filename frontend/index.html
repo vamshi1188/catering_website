@@ -3,12 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sadguru Catring</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <title>Sadguru Catering</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #c62828;
+            --secondary-color: #ef5350;
+            --dark-color: #2c2c2c;
+            --light-color: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--dark-color);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 2rem;
+            color: var(--light-color);
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+
+        nav ul li a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        section {
+            padding: 5rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #home {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        #home h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        #home p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--secondary-color);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 0.5rem auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .menu-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        form {
+            width: 100%;
+            max-width: 600px;
+            display: grid;
+            gap: 1rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        footer {
+            background: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            #home h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <div class="logo">Sadguru Catring</div>
+        <div class="logo">Sadguru Catering</div>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
@@ -24,49 +247,45 @@
     <section id="home">
         <h1>Premium Catering Services</h1>
         <p>Delicious Food for Every Occasion</p>
-        <a href="#contact" class="btn">Book Now</a>
+        <a href="tel:7702638605" class="btn" aria-label="Call us to book now">Book Now</a>
     </section>
-
     <section id="about">
-        <h2>About Us</h2>
-        <p>Sadguru Catring brings over 15 years of culinary experience, specializing in traditional and modern catering for events of all kinds.</p>
-    </section>
-
-    <section id="services">
-        <h2>Our Services</h2>
-        <ul>
-            <li>Wedding Catering</li>
-            <li>Corporate Events</li>
-            <li>Birthday Parties</li>
-            <li>Outdoor Catering</li>
-        </ul>
-    </section>
-
-    <section id="menu">
-        <h2>Our Menu</h2>
-        <p>Explore our diverse selection of vegetarian and non-vegetarian dishes prepared with the freshest ingredients.</p>
-        <!-- Add dynamic menu loading if needed -->
-    </section>
-
-    <section id="gallery">
-        <h2>Gallery</h2>
-        <div class="gallery-container">
-            <!-- Insert image thumbnails -->
+        <h2 class="section-title">About Us</h2>
+        <div class="container">
+            <p>With over 20 years of culinary excellence, Sadguru Catering specializes in creating memorable dining experiences for weddings, corporate events, and private celebrations. Our team of expert chefs combines traditional recipes with modern presentation to delight every palate.</p>
         </div>
     </section>
 
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <form action="/api/contact" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
+    <section id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-glass-cheers"></i>
+                <h3>Wedding Catering</h3>
+                <p>Customized menus for your perfect day</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-briefcase"></i>
+                <h3>Corporate Events</h3>
+                <p>Professional catering for business occasions</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-birthday-cake"></i>
+                <h3>Birthday Parties</h3>
+                <p>Fun and festive culinary experiences</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-utensils"></i>
+                <h3>Outdoor Catering</h3>
+                <p>Perfect solutions for outdoor events</p>
+            </div>
+        </div>
     </section>
 
+    <!-- Add enhanced Menu, Gallery, and Contact sections similar to services section -->
+
     <footer>
-        <p>&copy; 2025 Sadguru Catring. All rights reserved.</p>
+        <p>&copy; 2025 Sadguru Catering. All rights reserved.</p>
     </footer>
 </body>
-</html>
+</html> 
