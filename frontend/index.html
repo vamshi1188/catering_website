@@ -248,7 +248,18 @@
         <h1>Premium Catering Services</h1>
         <p>Delicious Food for Every Occasion</p>
         <a href="tel:7702638605" class="btn" aria-label="Call us to book now">Book Now</a>
+        <script>
+            document.getElementById('callButton')
+              .addEventListener('click', () => {
+                window.location.href = 'tel:7702638605';
+              });
+          </script>
     </section>
+
+
+
+
+
     <section id="about">
         <h2 class="section-title">About Us</h2>
         <div class="container">
