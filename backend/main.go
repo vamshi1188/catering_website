@@ -1,56 +1,41 @@
+// handlers/contact.go
 package main
 
 import (
-	"html/template"
-	"log"
-	"net/http"
+  "context"
+  "log"
+  "time"
+  "net/http"
+  "github.com/gin-gonic/gin"
+  mailgun "github.com/mailgun/mailgun-go/v5"
 )
 
-type ContactForm struct {
-	Name    string
-	Email   string
-	Message string
+type ContactForm struct{ Name, Email, Message string }
+
+func ContactHandler(c *gin.Context) {
+  var f ContactForm
+  if err := c.ShouldBindJSON(&f); err != nil {
+    c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+    return
+  }
+  go sendMailgun(f)
+  c.JSON(http.StatusOK, gin.H{"status": "enquiry received"})
 }
 
-func main() {
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
-	http.HandleFunc("/", homeHandler)
-	http.HandleFunc("/api/contact", contactHandler)
-
-	log.Println("Server started on :8080")
-	http.ListenAndServe(":8080", nil)
-}
-
-func homeHandler(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.ParseFiles("templates/index.html")
-	if err != nil {
-		http.Error(w, "Error loading page", http.StatusInternalServerError)
-		return
-	}
-	tmpl.Execute(w, nil)
-}
-
-func contactHandler(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodPost {
-		http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
-		return
-	}
-
-	err := r.ParseForm()
-	if err != nil {
-		http.Error(w, "Error parsing form", http.StatusBadRequest)
-		return
-	}
-
-	form := ContactForm{
-		Name:    r.FormValue("name"),
-		Email:   r.FormValue("email"),
-		Message: r.FormValue("message"),
-	}
-
-	log.Printf("Received contact form submission: %+v\n", form)
-
-	// TODO: save to DB or send email
-
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+func sendMailgun(f ContactForm) {
+  mg := mailgun.NewMailgun("YOUR_DOMAIN", "YOUR_API_KEY")
+  message := mg.NewMessage(
+    "Sadguru Catering <noreply@yourdomain.com>",
+    "New Enquiry from "+f.Name,
+    f.Message+"\n\nFrom: "+f.Email,
+    "you@yourdomain.com",
+  )
+  ctx, cancel := context.WithTimeout(context.Background(), time.Second*10)
+  defer cancel()
+  resp, id, err := mg.Send(ctx, message)
+  if err != nil {
+    log.Println("Mailgun error:", err)
+  } else {
+    log.Printf("Mailgun queued: ID=%s Resp=%s\n", id, resp)
+  }
 }
