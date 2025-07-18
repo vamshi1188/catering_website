@@ -123,11 +123,11 @@ const Gallery: React.FC = () => {
   }
 
   return (
-    <section id="gallery" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
+    <section id="gallery" className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 indian-pattern opacity-30" />
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -136,29 +136,29 @@ const Gallery: React.FC = () => {
           className="max-w-7xl mx-auto"
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <p className="technical-text text-blueprint-600 mb-4">
+          <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
+            <p className="technical-text text-blueprint-600 mb-4 text-sm sm:text-base">
               Visual Portfolio
             </p>
-            <h2 className="text-5xl md:text-6xl font-serif font-bold text-slate-800 mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-slate-800 mb-6">
               Culinary
               <span className="color-accent text-accent-600 block">Artistry</span>
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed px-4">
               Explore our gallery of beautifully crafted events, showcasing the perfect harmony 
               between traditional flavors and contemporary presentation.
             </p>
           </motion.div>
 
           {/* Category Filter */}
-          <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-4 mb-12">
+          <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 px-4">
             {categories.map((category) => (
               <motion.button
                 key={category}
                 onClick={() => setActiveCategory(category)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                className={`px-3 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-300 text-sm sm:text-base ${
                   activeCategory === category
                     ? 'bg-gradient-to-r from-accent-500 to-accent-600 text-white shadow-accent-glow'
                     : 'glass-effect text-slate-700 hover:text-accent-600 hover:shadow-lg'
@@ -172,7 +172,7 @@ const Gallery: React.FC = () => {
           {/* Gallery Grid */}
           <motion.div 
             layout
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8"
           >
             <AnimatePresence>
               {filteredItems.map((item, index) => (
@@ -188,7 +188,7 @@ const Gallery: React.FC = () => {
                   className="line-art-border overflow-hidden rounded-2xl cursor-pointer group"
                 >
                   {/* Gallery Image */}
-                  <div className="relative h-64 overflow-hidden">
+                  <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
                     <img 
                       src={item.image} 
                       alt={item.title}

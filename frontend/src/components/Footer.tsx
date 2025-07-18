@@ -74,30 +74,30 @@ const Footer: React.FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          className="container mx-auto px-6 py-16"
+          className="container mx-auto px-4 sm:px-6 py-12 sm:py-16"
         >
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
             {/* Company Info */}
-            <motion.div variants={itemVariants} className="lg:col-span-1">
+            <motion.div variants={itemVariants} className="sm:col-span-2 lg:col-span-1">
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="line-art-border p-4 mb-6"
+                className="line-art-border p-3 sm:p-4 mb-4 sm:mb-6"
               >
-                <h3 className="text-2xl font-serif font-bold mb-2">
+                <h3 className="text-xl sm:text-2xl font-serif font-bold mb-2">
                   <span className="color-accent text-accent-400">Sadguru</span> Catering
                 </h3>
-                <p className="technical-text text-xs text-blueprint-400">
+                <p className="technical-text text-xs text-blueprint-400 hidden sm:block">
                   traditional · modern · exquisite
                 </p>
               </motion.div>
               
-              <p className="text-slate-300 leading-relaxed mb-6">
+              <p className="text-slate-300 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
                 Crafting unforgettable culinary experiences with authentic Indian flavors 
                 and contemporary presentation for over 15 years.
               </p>
 
               {/* Contact Info */}
-              <div className="space-y-3">
+              <div className="space-y-2 sm:space-y-3 text-sm sm:text-base">
                 <motion.div 
                   whileHover={{ x: 5 }}
                   className="flex items-center space-x-3 text-slate-300"
@@ -142,10 +142,10 @@ const Footer: React.FC = () => {
 
             {/* Quick Links */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-xl font-serif font-bold mb-6 text-blueprint-300">
+              <h4 className="text-lg sm:text-xl font-serif font-bold mb-4 sm:mb-6 text-blueprint-300">
                 Quick Links
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-2 sm:space-y-3">
                 {quickLinks.map((link) => (
                   <li key={link.name}>
                     <motion.a

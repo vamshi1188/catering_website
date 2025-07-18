@@ -45,11 +45,11 @@ const About: React.FC = () => {
   ]
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
+    <section id="about" className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 indian-pattern opacity-50" />
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -58,19 +58,19 @@ const About: React.FC = () => {
           className="max-w-6xl mx-auto"
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <p className="technical-text text-blueprint-600 mb-4">
+          <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
+            <p className="technical-text text-blueprint-600 mb-4 text-sm sm:text-base">
               Meet Master Chef Saraiah
             </p>
-            <h2 className="text-5xl md:text-6xl font-serif font-bold text-slate-800 mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-slate-800 mb-6">
               Crafting Culinary
               <span className="color-accent text-accent-600 block">Masterpieces</span>
             </h2>
-            <div className="max-w-4xl mx-auto">
-              <p className="text-2xl font-medium text-slate-700 mb-6 italic">
+            <div className="max-w-4xl mx-auto px-4">
+              <p className="text-lg sm:text-xl md:text-2xl font-medium text-slate-700 mb-6 italic">
                 "Cooking is not just about feeding the body, it's about nourishing the soul"
               </p>
-              <p className="text-xl text-slate-600 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed">
                 With over two decades of culinary expertise, Chef Saraiah brings passion, creativity, 
                 and authentic flavors to every dish. His journey through traditional cooking techniques 
                 combined with modern innovation has made Sadguru Catering a name synonymous with excellence.
@@ -79,37 +79,37 @@ const About: React.FC = () => {
           </motion.div>
 
           {/* Main Content Grid */}
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center mb-16 sm:mb-20">
             {/* Left Content */}
-            <motion.div variants={itemVariants} className="space-y-8">
-              <div className="line-art-border p-8 glass-effect rounded-2xl">
-                <h3 className="text-3xl font-serif font-bold text-slate-800 mb-6">
+            <motion.div variants={itemVariants} className="space-y-6 sm:space-y-8">
+              <div className="line-art-border p-4 sm:p-6 md:p-8 glass-effect rounded-2xl">
+                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-slate-800 mb-4 sm:mb-6">
                   Chef Saraiah's Journey
                 </h3>
-                <p className="text-lg text-slate-600 leading-relaxed mb-6">
+                <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-4 sm:mb-6">
                   From humble beginnings to becoming a master of his craft, Chef Saraiah believes that 
                   great food starts with great ingredients, loving preparation, and the joy of sharing 
                   memorable meals with others. His approach combines the wisdom of traditional cooking 
                   methods with innovative presentation techniques.
                 </p>
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   <div className="flex items-start space-x-3">
                     <div className="w-3 h-3 rounded-full bg-accent-500 mt-2 flex-shrink-0" />
-                    <p className="text-slate-600">
+                    <p className="text-sm sm:text-base text-slate-600">
                       <span className="font-semibold color-accent text-accent-600">Authenticity:</span> Every dish 
                       tells a story rooted in Indian culinary heritage
                     </p>
                   </div>
                   <div className="flex items-start space-x-3">
                     <div className="w-3 h-3 rounded-full bg-blueprint-500 mt-2 flex-shrink-0" />
-                    <p className="text-slate-600">
+                    <p className="text-sm sm:text-base text-slate-600">
                       <span className="font-semibold text-blueprint-600">Innovation:</span> Modern techniques 
                       that enhance traditional flavors
                     </p>
                   </div>
                   <div className="flex items-start space-x-3">
                     <div className="w-3 h-3 rounded-full bg-sage-500 mt-2 flex-shrink-0" />
-                    <p className="text-slate-600">
+                    <p className="text-sm sm:text-base text-slate-600">
                       <span className="font-semibold text-sage-600">Excellence:</span> Uncompromising 
                       standards in every aspect of service
                     </p>
@@ -119,9 +119,9 @@ const About: React.FC = () => {
             </motion.div>
 
             {/* Right Content - Visual Element */}
-            <motion.div variants={itemVariants} className="relative">
-              <div className="line-art-border p-8 glass-effect rounded-2xl">
-                <div className="relative h-96 rounded-xl overflow-hidden">
+            <motion.div variants={itemVariants} className="relative order-first lg:order-last">
+              <div className="line-art-border p-4 sm:p-6 md:p-8 glass-effect rounded-2xl">
+                <div className="relative h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden">
                   {/* Chef Image */}
                   <img 
                     src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&h=800&fit=crop&crop=center"
@@ -138,11 +138,11 @@ const About: React.FC = () => {
                         transition={{ delay: 0.5 }}
                         className="text-center"
                       >
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-accent-400 to-blueprint-500 flex items-center justify-center">
-                          <HiSparkles className="text-2xl text-white" />
+                        <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-accent-400 to-blueprint-500 flex items-center justify-center">
+                          <HiSparkles className="text-xl sm:text-2xl text-white" />
                         </div>
-                        <h4 className="text-xl font-serif font-bold mb-2">Master Chef Saraiah</h4>
-                        <p className="technical-text text-sm text-accent-300">
+                        <h4 className="text-lg sm:text-xl font-serif font-bold mb-2">Master Chef Saraiah</h4>
+                        <p className="technical-text text-xs sm:text-sm text-accent-300">
                           20+ Years of Culinary Excellence
                         </p>
                       </motion.div>
@@ -169,28 +169,28 @@ const About: React.FC = () => {
           </div>
 
           {/* Features Grid */}
-          <motion.div variants={itemVariants} className="grid md:grid-cols-3 gap-8">
+          <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {features.map((feature) => (
               <motion.div
                 key={feature.title}
                 variants={itemVariants}
                 whileHover={{ scale: 1.05, y: -10 }}
-                className="line-art-border p-6 glass-effect rounded-xl text-center group"
+                className="line-art-border p-4 sm:p-6 glass-effect rounded-xl text-center group"
               >
                 <motion.div
                   whileHover={{ scale: 1.2, rotate: 5 }}
-                  className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r 
+                  className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto mb-3 sm:mb-4 rounded-full bg-gradient-to-r 
                     ${feature.color === 'accent' ? 'from-accent-400 to-accent-600' : 
                       feature.color === 'blueprint' ? 'from-blueprint-400 to-blueprint-600' : 
                       'from-sage-400 to-sage-600'} 
                     flex items-center justify-center shadow-lg`}
                 >
-                  <feature.icon className="text-2xl text-white" />
+                  <feature.icon className="text-lg sm:text-xl md:text-2xl text-white" />
                 </motion.div>
-                <h4 className="text-xl font-semibold text-slate-800 mb-3">
+                <h4 className="text-lg sm:text-xl font-semibold text-slate-800 mb-3">
                   {feature.title}
                 </h4>
-                <p className="text-slate-600 leading-relaxed">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
                   {feature.description}
                 </p>
               </motion.div>

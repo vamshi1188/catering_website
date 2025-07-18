@@ -1,4 +1,3 @@
-import React from 'react'
 import { motion } from 'framer-motion'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -15,8 +14,8 @@ function App() {
       {/* Enhanced Blueprint Overlay */}
       <div className="blueprint-overlay opacity-30" />
       
-      {/* Floating Geometric Elements */}
-      <div className="fixed inset-0 pointer-events-none z-0">
+      {/* Floating Geometric Elements - Hidden on mobile for better performance and clarity */}
+      <div className="fixed inset-0 pointer-events-none z-0 hidden md:block">
         <div className="absolute top-20 left-10 w-32 h-32 border border-blueprint-300/20 rounded-full animate-pulse"></div>
         <div className="absolute top-40 right-20 w-16 h-16 border border-accent-300/20 rotate-45 animate-pulse delay-1000"></div>
         <div className="absolute bottom-40 left-20 w-24 h-24 border border-sage-300/20 rounded-lg animate-pulse delay-500"></div>

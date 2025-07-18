@@ -133,11 +133,11 @@ Please provide me with a detailed quote. Thank you!`
   }
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-blueprint-50 to-accent-50 relative overflow-hidden">
+    <section id="contact" className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-blueprint-50 to-accent-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 blueprint-container" />
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -146,29 +146,29 @@ Please provide me with a detailed quote. Thank you!`
           className="max-w-7xl mx-auto"
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <p className="technical-text text-blueprint-600 mb-4">
+          <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
+            <p className="technical-text text-blueprint-600 mb-4 text-sm sm:text-base">
               Get In Touch
             </p>
-            <h2 className="text-5xl md:text-6xl font-serif font-bold text-slate-800 mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-slate-800 mb-6">
               Let's Create Something
               <span className="color-accent text-accent-600 block">Extraordinary</span>
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed px-4">
               Ready to discuss your next event? Contact us today and let's bring your culinary vision to life 
               with our expertise and passion for exceptional catering.
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
             {/* Contact Information */}
-            <motion.div variants={itemVariants} className="space-y-8">
-              <div className="line-art-border p-8 glass-effect rounded-2xl">
-                <h3 className="text-3xl font-serif font-bold text-slate-800 mb-8">
+            <motion.div variants={itemVariants} className="space-y-6 sm:space-y-8">
+              <div className="line-art-border p-4 sm:p-6 md:p-8 glass-effect rounded-2xl">
+                <h3 className="text-2xl sm:text-3xl font-serif font-bold text-slate-800 mb-6 sm:mb-8">
                   Contact Information
                 </h3>
                 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6">
                   {contactInfo.map((info) => {
                     const ContactElement = info.link ? 'a' : 'div';
                     const linkProps = info.link ? {
@@ -186,15 +186,15 @@ Please provide me with a detailed quote. Thank you!`
                       >
                         <motion.div
                           whileHover={{ scale: 1.2, rotate: 5 }}
-                          className={`w-12 h-12 mb-4 rounded-full bg-gradient-to-r 
+                          className={`w-10 h-10 sm:w-12 sm:h-12 mb-4 rounded-full bg-gradient-to-r 
                             ${info.color === 'accent' ? 'from-accent-400 to-accent-600' : 
                               info.color === 'blueprint' ? 'from-blueprint-400 to-blueprint-600' : 
                               'from-sage-400 to-sage-600'} 
                             flex items-center justify-center shadow-lg`}
                         >
-                          <info.icon className="text-xl text-white" />
+                          <info.icon className="text-lg sm:text-xl text-white" />
                         </motion.div>
-                        <h4 className="text-lg font-semibold text-slate-800 mb-2">
+                        <h4 className="text-base sm:text-lg font-semibold text-slate-800 mb-2">
                           {info.title}
                         </h4>
                         <ContactElement
@@ -249,8 +249,8 @@ Please provide me with a detailed quote. Thank you!`
                 Request a Quote
               </h3>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <motion.div whileFocus={{ scale: 1.02 }}>
                     <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-2">
                       Full Name *
@@ -284,7 +284,7 @@ Please provide me with a detailed quote. Thank you!`
                   </motion.div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <motion.div whileFocus={{ scale: 1.02 }}>
                     <label htmlFor="phone" className="block text-sm font-semibold text-slate-700 mb-2">
                       Phone Number

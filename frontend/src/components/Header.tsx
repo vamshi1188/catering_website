@@ -20,17 +20,17 @@ const Header: React.FC = () => {
       transition={{ duration: 0.8 }}
       className="fixed top-0 left-0 right-0 z-50 glass-effect"
     >
-      <div className="container mx-auto px-6 py-4">
+      <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="line-art-border p-3"
+            className="line-art-border p-2 sm:p-3"
           >
-            <h1 className="text-2xl font-serif font-bold text-blueprint-700">
+            <h1 className="text-xl sm:text-2xl font-serif font-bold text-blueprint-700">
               <span className="color-accent text-accent-600">Sadguru</span> Catering
             </h1>
-            <p className="technical-text text-xs text-blueprint-500 mt-1">
+            <p className="technical-text text-xs text-blueprint-500 mt-1 hidden sm:block">
               traditional · modern · exquisite
             </p>
           </motion.div>
@@ -53,7 +53,7 @@ const Header: React.FC = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-blueprint-600 to-blueprint-700 text-white px-6 py-3 rounded-lg shadow-blueprint hover:shadow-accent-glow transition-all duration-300 font-medium"
+              className="bg-gradient-to-r from-blueprint-600 to-blueprint-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-blueprint hover:shadow-accent-glow transition-all duration-300 font-medium text-sm sm:text-base"
             >
               Book Now
             </motion.button>
@@ -63,7 +63,7 @@ const Header: React.FC = () => {
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-blueprint-700 p-2"
+            className="md:hidden text-blueprint-700 p-2 z-50 relative"
           >
             {isMenuOpen ? <HiXMark size={24} /> : <HiBars3 size={24} />}
           </motion.button>
@@ -74,9 +74,9 @@ const Header: React.FC = () => {
           initial={false}
           animate={{ height: isMenuOpen ? 'auto' : 0, opacity: isMenuOpen ? 1 : 0 }}
           transition={{ duration: 0.3 }}
-          className="md:hidden overflow-hidden"
+          className="md:hidden overflow-hidden bg-white/95 backdrop-blur-sm border-t border-blueprint-200"
         >
-          <div className="py-4 space-y-4">
+          <div className="py-4 space-y-2 px-4">
             {navItems.map((item, index) => (
               <motion.a
                 key={item.name}

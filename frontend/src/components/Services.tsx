@@ -82,11 +82,11 @@ const Services: React.FC = () => {
   ]
 
   return (
-    <section id="services" className="py-20 bg-gradient-to-br from-blueprint-50 to-accent-50 relative overflow-hidden">
+    <section id="services" className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-blueprint-50 to-accent-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 blueprint-container" />
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -95,22 +95,23 @@ const Services: React.FC = () => {
           className="max-w-7xl mx-auto"
         >
           {/* Section Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <p className="technical-text text-blueprint-600 mb-4">
+                    {/* Section Header */}
+          <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
+            <p className="technical-text text-blueprint-600 mb-4 text-sm sm:text-base">
               Our Services
             </p>
-            <h2 className="text-5xl md:text-6xl font-serif font-bold text-slate-800 mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-slate-800 mb-6">
               Exceptional
               <span className="color-accent text-accent-600 block">Catering Solutions</span>
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed px-4">
               From intimate gatherings to grand celebrations, we provide comprehensive catering services 
               tailored to your unique requirements and vision.
             </p>
           </motion.div>
 
           {/* Main Services Grid */}
-          <motion.div variants={itemVariants} className="grid lg:grid-cols-3 gap-8 mb-20">
+          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-20">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
@@ -154,11 +155,11 @@ const Services: React.FC = () => {
                 </div>
 
                 {/* Service Content */}
-                <div className="p-8">
-                  <h3 className="text-2xl font-serif font-bold text-slate-800 mb-4">
+                <div className="p-4 sm:p-6 md:p-8">
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-slate-800 mb-4">
                     {service.title}
                   </h3>
-                  <p className="text-slate-600 mb-6 leading-relaxed">
+                  <p className="text-slate-600 mb-6 leading-relaxed text-sm sm:text-base">
                     {service.description}
                   </p>
 
@@ -177,14 +178,14 @@ const Services: React.FC = () => {
                             service.color === 'blueprint' ? 'bg-blueprint-500' : 
                             'bg-sage-500'}`} 
                         />
-                        <span className="text-slate-600">{feature}</span>
+                        <span className="text-slate-600 text-sm sm:text-base">{feature}</span>
                       </motion.li>
                     ))}
                   </ul>
 
                   {/* Price */}
                   <div className="border-t border-slate-200 pt-6">
-                    <p className={`text-lg font-semibold 
+                    <p className={`text-base sm:text-lg font-semibold 
                       ${service.color === 'accent' ? 'text-accent-600' : 
                         service.color === 'blueprint' ? 'text-blueprint-600' : 
                         'text-sage-600'}`}>
@@ -209,7 +210,7 @@ Thank you!`
                         const whatsappURL = `https://wa.me/917702638605?text=${encodeURIComponent(message)}`
                         window.open(whatsappURL, '_blank')
                       }}
-                      className={`w-full mt-4 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2
+                      className={`w-full mt-4 py-2.5 sm:py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 text-sm sm:text-base
                         ${service.color === 'accent' ? 
                           'bg-gradient-to-r from-accent-500 to-accent-600 text-white shadow-accent-glow hover:shadow-lg' : 
                           service.color === 'blueprint' ? 

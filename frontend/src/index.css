@@ -15,6 +15,13 @@
     scroll-behavior: smooth;
   }
 
+  /* Ensure minimum touch target size for mobile */
+  @media (max-width: 768px) {
+    button, a, input, select, textarea {
+      min-height: 44px;
+    }
+  }
+
   body {
     @apply font-sans text-slate-900;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 25%, #f1f5f9 50%, #dbeafe 75%, #e0f2fe 100%);
