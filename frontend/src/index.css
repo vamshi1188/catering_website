@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-blueprint-primary: theme('colors.blueprint.600');
+    --color-accent-primary: theme('colors.accent.500');
+    --color-sage-primary: theme('colors.sage.600');
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-slate-900;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 25%, #f1f5f9 50%, #dbeafe 75%, #e0f2fe 100%);
+    background-attachment: fixed;
+    background-size: 400% 400%;
+    animation: gradientFlow 15s ease infinite;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(99, 102, 241, 0.03) 0%, transparent 50%),
+      linear-gradient(135deg, transparent 0%, rgba(248, 250, 252, 0.8) 100%);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2394a3b8' fill-opacity='0.02'%3E%3Cpath d='M30 30c0-8.284-6.716-15-15-15s-15 6.716-15 15 6.716 15 15 15 15-6.716 15-15zm15 0c0-8.284-6.716-15-15-15s-15 6.716-15 15 6.716 15 15 15 15-6.716 15-15z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.4;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .blueprint-container {
+    @apply relative overflow-hidden;
+  }
+
+  .blueprint-container::before {
+    content: '';
+    @apply absolute inset-0 opacity-30;
+    background-image: 
+      linear-gradient(rgba(37, 99, 235, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(37, 99, 235, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: blueprint-shift 20s linear infinite;
+  }
+
+  .blueprint-overlay {
+    @apply absolute inset-0 pointer-events-none;
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+  }
+
+  .line-art-border {
+    @apply relative;
+  }
+
+  .line-art-border::before {
+    content: '';
+    @apply absolute inset-0 border-2 border-blueprint-600 rounded-lg opacity-60;
+    background: linear-gradient(45deg, transparent 40%, rgba(37, 99, 235, 0.1) 50%, transparent 60%);
+    background-size: 20px 20px;
+    animation: line-art-flow 3s ease-in-out infinite;
+  }
+
+  .selective-color {
+    @apply relative;
+    filter: grayscale(0.7) contrast(1.2);
+  }
+
+  .selective-color .color-accent {
+    filter: grayscale(0) saturate(1.5) contrast(1.1);
+  }
+
+  .indian-pattern {
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(245, 158, 11, 0.1) 2px, transparent 2px),
+      radial-gradient(circle at 75% 75%, rgba(37, 99, 235, 0.1) 2px, transparent 2px);
+    background-size: 60px 60px;
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-sm bg-white/20 border border-white/30;
+    box-shadow: 
+      0 8px 32px rgba(31, 38, 135, 0.37),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .technical-text {
+    @apply font-mono text-sm tracking-wider uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .hero-section {
+    @apply min-h-screen flex items-center justify-center relative;
+    background: 
+      linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(245, 158, 11, 0.05) 100%),
+      radial-gradient(circle at 30% 70%, rgba(37, 99, 235, 0.1) 0%, transparent 50%);
+  }
+}
+
+@layer utilities {
+  .text-outline {
+    text-shadow: 
+      -1px -1px 0 rgba(255, 255, 255, 0.8),
+      1px -1px 0 rgba(255, 255, 255, 0.8),
+      -1px 1px 0 rgba(255, 255, 255, 0.8),
+      1px 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .sketch-shadow {
+    box-shadow: 
+      0 1px 3px rgba(0, 0, 0, 0.12),
+      0 1px 2px rgba(0, 0, 0, 0.24),
+      inset 0 0 0 1px rgba(37, 99, 235, 0.1);
+  }
+
+  .floating {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .blueprint-text {
+    @apply text-blueprint-700 font-mono;
+    text-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
+  }
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes blueprint-shift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(40px, 40px); }
+}
+
+@keyframes line-art-flow {
+  0%, 100% { 
+    background-position: 0 0; 
+    opacity: 0.6;
+  }
+  50% { 
+    background-position: 20px 20px; 
+    opacity: 0.8;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
